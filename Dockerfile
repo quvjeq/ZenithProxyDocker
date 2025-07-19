@@ -20,4 +20,6 @@ RUN if [ "$TARGETARCH" = "amd64" ]; then \
 
 EXPOSE 25565
 WORKDIR /opt/ZenithProxy
-CMD ./launch --unattended
+COPY entrypoint.sh /opt/ZenithProxy/entrypoint.sh
+RUN chmod +x /opt/ZenithProxy/entrypoint.sh
+CMD ["./entrypoint.sh"]
